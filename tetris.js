@@ -207,8 +207,12 @@
                 break;
             
             case 't':  // toutche t
-                rotation = 0;
-                forme[numForme++];
+            numForme++; 
+            if(numForme > 6){
+                numForme = 0;
+            }
+            rotation = 0;
+            refreshCanvas();
                 // à compléter
 				// pour test, ne fait pas parti du jeu final
 				// permet de changer la pièce à afficher (changement de la variable numForme)
