@@ -15,6 +15,9 @@
 	var numForme = 0;
 	// Sélection de la version de la forme à afficher (différentes rotations possibles)
     var rotation = 0;
+    //  Couleurs formes
+    var couleursFormes = new Array();
+    couleursFormes[0] = 
     
 	// Tableau de définition des formes
     var forme = new Array();
@@ -135,9 +138,7 @@
             [0,0,1,0],
             [0,0,1,0]
         ]
-    ]
-
-    // A compléter avec les autres formes    
+    ]    
 
 	// !!! Fin du Tableau de définition des formes    
 	
@@ -216,6 +217,12 @@
                 // à compléter
 				// pour test, ne fait pas parti du jeu final
 				// permet de changer la pièce à afficher (changement de la variable numForme)
+                break;
+            
+            case 'ArrowDown': // flèche bas => rotation anti-horaire de la forme
+                rotation--;
+                if(rotation < 0) rotation = forme[numForme].length - 1;
+                refreshCanvas();
                 break;
         }
       }, true);
