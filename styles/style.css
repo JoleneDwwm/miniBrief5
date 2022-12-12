@@ -1,11 +1,12 @@
-body{
+body {
     background-image: url(/images/fond\ paysage.jpg);
     background-size: cover;
     background-repeat: no-repeat;
 
-    
+
 }
-h1{
+
+h1 {
     font-family: 'Rubik Puddles', cursive;
     text-align: center;
     padding-top: 20px;
@@ -19,81 +20,102 @@ h1{
         0 0 100px rgb(230, 18, 124);
     animation: lumiere 1s infinite linear;
 }
+
 @keyframes lumiere {
-    0%{
+    0% {
         text-shadow:
-        0 0 7px #fff,
-        0 0 10px #fff,
-        0 0 42px rgb(230, 18, 124),
-        0 0 77px rgb(230, 18, 124),
-        0 0 100px rgb(230, 18, 124);
+            0 0 7px #fff,
+            0 0 10px #fff,
+            0 0 42px rgb(230, 18, 124),
+            0 0 77px rgb(230, 18, 124),
+            0 0 100px rgb(230, 18, 124);
     }
-   50%{
+
+    50% {
         text-shadow:
-        0 0 7px rgb(5, 5, 5),
-        0 0 10px rgb(5, 5, 5),
-        0 0 32px rgb(230, 18, 124),
-        0 0 87px rgb(230, 18, 124),
-        0 0 120px rgb(230, 18, 124);
+            0 0 7px rgb(5, 5, 5),
+            0 0 10px rgb(5, 5, 5),
+            0 0 32px rgb(230, 18, 124),
+            0 0 87px rgb(230, 18, 124),
+            0 0 120px rgb(230, 18, 124);
     }
 }
-canvas{
+
+.image img {
+    width: 100px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+
+canvas {
     background-color: darkgray;
-    padding: 0; 
+    padding: 0;
     margin: auto;
-     display: block;
-      
-    width: 900px; 
-      height: 600px;
-       position: relative;
-        top: 0; 
-        bottom: 0; 
-        left: 0; 
-        right: 0;
-        opacity: 50%;
-        border-radius: 10px;
+    display: block;
+
+    width: 900px;
+    height: 800px;
+    position: relative;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 50%;
+    border-radius: 10px;
 
 }
+
 figure {
     margin: 0;
 }
-audio{
+
+audio {
     opacity: 0.1;
 }
-.btn-group button{
+
+.btn-group button {
     color: black;
-    
+
 }
-section{
-    height: 200px;;
+
+section {
+    height: 200px;
+    ;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.btn{
-   font-size: 100px;
-    
-    
+
+.btn {
+    font-size: 100px;
+
+
 }
-.btn-dark{
+
+.btn-dark {
     opacity: 50%;
     font-size: 50px;
 
 }
-.score{
+
+.score {
     color: white;
+    font-family: 'Marvel', sans-serif;
     font-size: 30px;
-    
+
 }
-.text{
+
+.text {
     background-color: black;
+    height: 50vh;
     border-radius: 10px;
     width: 10vw;
 
-    
+
 }
-/* .container{
+
+.container{
     display: flex;
     justify-content: right;
-} */
-
+}
