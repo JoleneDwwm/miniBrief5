@@ -17,7 +17,10 @@
     var rotation = 0;
     //  Couleurs formes
     var couleursFormes = new Array();
-    couleursFormes[0] = 
+    couleursFormes = [ // couleur forme et contour
+        ["#FF8c00","#FF00FF","#32CD32","#FFE4C4","#D2691E","#00FFFF","#66CDAA"],
+        ["#FFFF00","#4B0082","#7FFF00","#800000","#8B4513","#4682B4","#006400"]
+    ]; 
     
 	// Tableau de définition des formes
     var forme = new Array();
@@ -158,9 +161,9 @@
 		for(x=0 ; x<forme[numForme][rotation].length ; x++) {
 			for(y=0 ; y<forme[numForme][rotation].length ; y++) {
                 if(forme[numForme][rotation][y][x] == 1) {
-                    ctx.fillStyle = "#FF0000"; // Couleur du contour de la forme
+                    ctx.fillStyle = couleursFormes[0][numForme]; // Couleur du contour de la forme
                     ctx.fillRect((formX + x) * CARREAU, (formY + y) * CARREAU, CARREAU, CARREAU); // Contour de la forme
-                    ctx.fillStyle = "#00FF00"; // Couleur de remplissage de la forme
+                    ctx.fillStyle = couleursFormes[1][numForme]; // Couleur de remplissage de la forme
                     ctx.fillRect((formX + x) * CARREAU + 1, (formY + y) * CARREAU + 1, CARREAU - 2, CARREAU - 2); // Remplissage de la forme
                 }
             }
@@ -222,6 +225,16 @@
             case 'ArrowDown': // flèche bas => rotation anti-horaire de la forme
                 rotation--;
                 if(rotation < 0) rotation = forme[numForme].length - 1;
+                refreshCanvas();
+                break;
+
+            case 'ArrowRight': // flèche droite => bouge la forme sur la droite
+                formX++; 
+                refreshCanvas();
+                break;
+
+            case 'ArrowLeft': // flèche gauche => bouge la forme sur la gauche 
+                formX--;
                 refreshCanvas();
                 break;
         }
