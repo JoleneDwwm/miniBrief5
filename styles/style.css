@@ -2,11 +2,14 @@ body{
     background-image: url(/images/fond\ paysage.jpg);
     background-size: cover;
     background-repeat: no-repeat;
+
+    
 }
 h1{
     font-family: 'Rubik Puddles', cursive;
     text-align: center;
     padding-top: 20px;
+    padding-bottom: 70px;
     color: #fff;
     text-shadow:
         0 0 7px #fff,
@@ -35,18 +38,19 @@ h1{
     }
 }
 canvas{
-    background-color: darkgrey;
+    background-color: darkgray;
     padding: 0; 
     margin: auto;
      display: block;
-      width: 900px; 
+      
+    width: 900px; 
       height: 600px;
-       position: absolute;
+       position: relative;
         top: 0; 
         bottom: 0; 
         left: 0; 
         right: 0;
-        opacity: 0.3;
+        opacity: 50%;
         border-radius: 10px;
 
 }
@@ -58,5 +62,38 @@ audio{
 }
 .btn-group button{
     color: black;
+    
 }
+section{
+    height: 200px;;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.btn{
+   font-size: 100px;
+    
+    
+}
+.btn-dark{
+    opacity: 50%;
+    font-size: 50px;
+
+}
+.score{
+    color: white;
+    font-size: 30px;
+    
+}
+.text{
+    background-color: black;
+    border-radius: 10px;
+    width: 10vw;
+
+    
+}
+/* .container{
+    display: flex;
+    justify-content: right;
+} */
 
