@@ -11,9 +11,11 @@
     var formX = X_INITIAL;
     var formY = Y_INITIAL;
     
-    //console.table
+    console.table("grille");
     // Créer le tableau sur une seule dimension
     var grille = new Array(LARGEUR_GRILLE);
+
+    
 
 	// Numéro de la forme (du tableau "forme") à afficher 
 	var numForme = 0;
