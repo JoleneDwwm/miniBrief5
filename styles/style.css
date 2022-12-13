@@ -2,8 +2,6 @@ body {
     background-image: url(/images/fond\ paysage.jpg);
     background-size: cover;
     background-repeat: no-repeat;
-
-
 }
 
 h1 {
@@ -18,7 +16,7 @@ h1 {
         0 0 42px rgb(230, 18, 124),
         0 0 77px rgb(230, 18, 124),
         0 0 100px rgb(230, 18, 124);
-    animation: lumiere 1s infinite linear;
+    animation: lumiere 2s infinite linear;
 }
 
 @keyframes lumiere {
@@ -49,21 +47,20 @@ h1 {
 }
 
 canvas {
+    border:red 5px solid;
     background-color: darkgray;
     padding: 0;
-    margin: auto;
+    margin: 0 auto;
     display: block;
-
-    width: 900px;
+    width: 100%;
     height: 800px;
-    position: relative;
+/*     position: relative;
     top: 0;
     bottom: 0;
     left: 0;
-    right: 0;
+    right: 0; */
     opacity: 50%;
     border-radius: 10px;
-
 }
 
 figure {
@@ -76,12 +73,10 @@ audio {
 
 .btn-group button {
     color: black;
-
 }
 
 section {
     height: 200px;
-    ;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -89,33 +84,35 @@ section {
 
 .btn {
     font-size: 100px;
-
-
 }
 
 .btn-dark {
     opacity: 50%;
     font-size: 50px;
-
 }
 
 .score {
+    display: inline-block;
     color: white;
     font-family: 'Marvel', sans-serif;
     font-size: 30px;
-
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .text {
+    display:block;
     background-color: black;
-    height: 50vh;
+    opacity: 50%;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin:0 auto;
     border-radius: 10px;
-    width: 10vw;
-
-
+    width: 100%;
 }
-
-.container{
-    display: flex;
-    justify-content: right;
+.scores{
+    padding: 0;
+}
+.canvase{
+    padding: 0;
 }
