@@ -11,6 +11,10 @@
     var formX = X_INITIAL;
     var formY = Y_INITIAL;
 
+    // Créer le tableau sur une seule dimension
+    var grille = new Array(LARGEUR_GRILLE);
+    grille[x] = new Array(HAUTEUR_GRILLE);
+
 	// Numéro de la forme (du tableau "forme") à afficher 
 	var numForme = 0;
 	// Sélection de la version de la forme à afficher (différentes rotations possibles)
@@ -169,6 +173,7 @@
             }
         }
     }
+
     ///////////////////////////////////////////////////////
     // refreshCanvas()
 	//   Rafraichi l'affichage :
@@ -178,7 +183,13 @@
     function refreshCanvas() {
 		ctx.clearRect(0,0,LARGEUR_GRILLE * CARREAU, HAUTEUR_GRILLE * CARREAU); // Efface la grille
 		drawForme(); // Dessine la forme
+        formY++;
+        if(formY > 16){
+            formY = 0;
+        }
+        setTimeout(refreshCanvas, 250);
     }
+    
     ///////////////////////////////////////////////////////
     // inti()
 	//   Initialisation du canvas
@@ -205,37 +216,41 @@
         switch(key) {
             // Remarque : Pour connaitre les "keycodes" : https://keycode.info/
             case 'ArrowUp':  // flèche haut => rotation horaire de la forme
-                rotation++;
-                if(rotation >  forme[numForme].length - 1) rotation = 0;
-                refreshCanvas();
+                temp = rotation;	// On mémorise la rotation actuelle
+                rotation++; 		// On passe à la rotation suivante
+                if(rotation > forme[numForme].length - 1) rotation = 0;
+                if(collision()) rotation = temp; // Si la rotation est impossible on revient à la précédente
                 break;
             
             case 't':  // toutche t
-            numForme++; 
-            if(numForme > 6){
-                numForme = 0;
-            }
-            rotation = 0;
-            refreshCanvas();
-                // à compléter
+                numForme++; 
+                if(numForme > 6){
+                    numForme = 0;
+                }
+                rotation = 0;
 				// pour test, ne fait pas parti du jeu final
 				// permet de changer la pièce à afficher (changement de la variable numForme)
                 break;
             
             case 'ArrowDown': // flèche bas => rotation anti-horaire de la forme
+                temp = rotation;
                 rotation--;
                 if(rotation < 0) rotation = forme[numForme].length - 1;
-                refreshCanvas();
+                if(collision()) rotation = temp;
                 break;
 
             case 'ArrowRight': // flèche droite => bouge la forme sur la droite
+                temp = rotation;
                 formX++; 
-                refreshCanvas();
+                if(rotation < 0) rotation = forme[numForme].length - 1;
+                if(collision()) rotation = temp;
                 break;
 
-            case 'ArrowLeft': // flèche gauche => bouge la forme sur la gauche 
+            case 'ArrowLeft': // flèche gauche => bouge la forme sur la gauche
+                temp = rotation;
                 formX--;
-                refreshCanvas();
+                if(formX < 0) rotation = forme[numForme].length - 1;
+                if(collision()) rotation = temp;
                 break;
         }
       }, true);
