@@ -1,7 +1,7 @@
 ﻿window.onload = function() {
 	const LARGEUR_GRILLE = 10;  // Nombre de cases en largeur
     const HAUTEUR_GRILLE = 16;  // Nombre de cases en hauteur
-    const CARREAU = 15;	        // Taille en pixels d'une case de la grille
+    const CARREAU = 20;	        // Taille en pixels d'une case de la grille
     var canvas;                 // Un canvas est un élément HTML dans lequel on peut dessiner des formes
     var ctx;
 	
@@ -11,7 +11,8 @@
     var formX = X_INITIAL;
     var formY = Y_INITIAL;
 
-    var grille = new Array(LARGEUR_GRILLE); 
+    /* var grille = new Array(LARGEUR_GRILLE); 
+    grille[x] = new Array(HAUTEUR_GRILLE); */ 
 
 	// Numéro de la forme (du tableau "forme") à afficher 
 	var numForme = 0;
