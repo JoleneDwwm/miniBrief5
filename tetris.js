@@ -10,15 +10,16 @@
 	const Y_INITIAL = 0;
     var formX = X_INITIAL;
     var formY = Y_INITIAL;
-
+    
+    //console.table
     // Créer le tableau sur une seule dimension
     var grille = new Array(LARGEUR_GRILLE);
-    grille[x] = new Array(HAUTEUR_GRILLE);
 
 	// Numéro de la forme (du tableau "forme") à afficher 
 	var numForme = 0;
 	// Sélection de la version de la forme à afficher (différentes rotations possibles)
     var rotation = 0;
+
     //  Couleurs formes
     var couleursFormes = new Array();
     couleursFormes = [ // couleur forme et contour
@@ -189,6 +190,27 @@
         }
         setTimeout(refreshCanvas, 250);
     }
+    //  Copie la forme en cours (définie par les variables numForme, rotation, formX, formY) à sa bonne position dans la grille 
+    function copierFormeDansLaGrille() {
+        formY++; // La forme descend
+        for(x=0 ; x<forme[numForme][rotation].length ; x++) {
+			for(y=0 ; y<forme[numForme][rotation].length ; y++) {
+                if(forme[numForme][rotation][y][x] == 1) {
+                    if(collision()) {
+                        formY--; // En cas de collision on revient en arrière
+                        copierFormeDansLaGrille();
+                        formY = Y_INITIAL; // Une nouvelle forme arrive en haut du canvas
+                        formX = X_INITIAL;
+                        rotation = 0;
+                    }
+                }
+            }
+        }
+    }
+    //  Afficher la grille 
+    function drawGrille() {
+
+    }
     
     ///////////////////////////////////////////////////////
     // inti()
@@ -200,9 +222,16 @@
         canvas.style.border = "1px solid";
         document.body.appendChild(canvas);  // Ajoute le canvas à la page html
         ctx = canvas.getContext('2d');
-
+        
 		refreshCanvas();
     }
+
+    //  Créer un tableau de HAUTEUR_GRILLE pour chaque cases du tableau "grille" de manière à obtenir le tableau à 2 dimensions
+    function initGrille() {
+        grille[x] = new Array(HAUTEUR_GRILLE).fill(-1);
+    }
+
+
     // !!! Fin des fonctions !!!
     /////////////////////////////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////////////////////////////////
