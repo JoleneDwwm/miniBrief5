@@ -194,27 +194,6 @@
         }
         setTimeout(refreshCanvas, 250);
     }
-    //  Copie la forme en cours (définie par les variables numForme, rotation, formX, formY) à sa bonne position dans la grille 
-    function copierFormeDansLaGrille() {
-        formY++; // La forme descend
-        for(x=0 ; x<forme[numForme][rotation].length ; x++) {
-			for(y=0 ; y<forme[numForme][rotation].length ; y++) {
-                if(forme[numForme][rotation][y][x] == 1) {
-                    if(collision()) {
-                        formY--; // En cas de collision on revient en arrière
-                        copierFormeDansLaGrille();
-                        formY = Y_INITIAL; // Une nouvelle forme arrive en haut du canvas
-                        formX = X_INITIAL;
-                        rotation = 0;
-                    }
-                }
-            }
-        }
-    }
-    //  Afficher la grille 
-    function drawGrille() {
-
-    }
     
     ///////////////////////////////////////////////////////
     // init()
