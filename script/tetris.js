@@ -1,7 +1,7 @@
 ﻿window.onload = function() {
 	const LARGEUR_GRILLE = 10;  // Nombre de cases en largeur
     const HAUTEUR_GRILLE = 16;  // Nombre de cases en hauteur
-    const CARREAU = 15;	        // Taille en pixels d'une case de la grille
+    const CARREAU = 20;	        // Taille en pixels d'une case de la grille
     var canvas;                 // Un canvas est un élément HTML dans lequel on peut dessiner des formes
     var ctx;
 	
@@ -10,12 +10,9 @@
 	const Y_INITIAL = 0;
     var formX = X_INITIAL;
     var formY = Y_INITIAL;
-    
-    console.table("grille");
-    // Créer le tableau sur une seule dimension
-    var grille = new Array(LARGEUR_GRILLE);
 
-    
+    /* var grille = new Array(LARGEUR_GRILLE); 
+    grille[x] = new Array(HAUTEUR_GRILLE); */ 
 
 	// Numéro de la forme (du tableau "forme") à afficher 
 	var numForme = 0;
@@ -157,6 +154,12 @@
     /////////////////////////////////////////////////////////////////////////////////////////////////////////	    
 	// !!! Les fonctions !!!
 	
+
+    /* initGrille
+    function initGrille() {
+        grille[x] = new Array(HAUTEUR_GRILLE).fill(-1); 
+    }*/
+
     // drawForme()
 	//   Dessine une forme à l'écran 
 	//   Variable utilisées :
@@ -176,7 +179,6 @@
             }
         }
     }
-
     ///////////////////////////////////////////////////////
     // refreshCanvas()
 	//   Rafraichi l'affichage :
@@ -215,14 +217,14 @@
     }
     
     ///////////////////////////////////////////////////////
-    // inti()
+    // init()
 	//   Initialisation du canvas
     function init() {
         canvas = document.createElement('canvas');
         canvas.width = LARGEUR_GRILLE * CARREAU;
         canvas.height = HAUTEUR_GRILLE * CARREAU;
         canvas.style.border = "1px solid";
-        document.body.appendChild(canvas);  // Ajoute le canvas à la page html
+        document.getElementById("myGame").appendChild(canvas);  // Ajoute le canvas à la page html
         ctx = canvas.getContext('2d');
         
 		refreshCanvas();
@@ -247,41 +249,34 @@
         switch(key) {
             // Remarque : Pour connaitre les "keycodes" : https://keycode.info/
             case 'ArrowUp':  // flèche haut => rotation horaire de la forme
-                temp = rotation;	// On mémorise la rotation actuelle
-                rotation++; 		// On passe à la rotation suivante
-                if(rotation > forme[numForme].length - 1) rotation = 0;
-                if(collision()) rotation = temp; // Si la rotation est impossible on revient à la précédente
-                break;
+            temp = rotation;    // On mémorise la rotation actuelle
+            rotation++;         // On passe à la rotation suivante
+            if(rotation > forme[numForme].length - 1) rotation = 0;
+            if(collision()) rotation = temp; // Si la rotation est impossible on revient à la précédente
+            break;
             
-            case 't':  // toutche t
-                numForme++; 
-                if(numForme > 6){
-                    numForme = 0;
-                }
-                rotation = 0;
+            case 't':  // touche t
+            numForme++; 
+            if(numForme > 6){
+                numForme = 0;
+            }
+            rotation = 0;
+                // à compléter
 				// pour test, ne fait pas parti du jeu final
 				// permet de changer la pièce à afficher (changement de la variable numForme)
                 break;
             
             case 'ArrowDown': // flèche bas => rotation anti-horaire de la forme
-                temp = rotation;
                 rotation--;
                 if(rotation < 0) rotation = forme[numForme].length - 1;
-                if(collision()) rotation = temp;
                 break;
 
             case 'ArrowRight': // flèche droite => bouge la forme sur la droite
-                temp = rotation;
                 formX++; 
-                if(rotation < 0) rotation = forme[numForme].length - 1;
-                if(collision()) rotation = temp;
                 break;
 
-            case 'ArrowLeft': // flèche gauche => bouge la forme sur la gauche
-                temp = rotation;
+            case 'ArrowLeft': // flèche gauche => bouge la forme sur la gauche 
                 formX--;
-                if(formX < 0) rotation = forme[numForme].length - 1;
-                if(collision()) rotation = temp;
                 break;
         }
       }, true);
