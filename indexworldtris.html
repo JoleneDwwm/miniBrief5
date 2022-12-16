@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link href="https://fonts.googleapis.com/css2?family=Rubik+Puddles&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Marvel:ital,wght@1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="fontawesome/all.css">
+    <link rel="stylesheet" href="fontawesome/fontawesome.css">
+    <link rel="stylesheet" href="style.css">
+    <title>WORLDTRIS</title> 
+    <link rel="icon" href="/images/images.ico"/>
+</head>
+<body>
+    <canvas id="myCanvas"></canvas>
+    <div class="result-container">
+        <div id="game-header"><h3>worldtris<h3></div>
+            <div class="baba">
+                <img src="/images/baba.jpg" alt="">
+            </div>
+        <div id="score" class="score">
+            <p>Score: <span id="score__text">0</span></p>
+            <p>Level: <span id="level__text">1</span></p>
+        </div>        
+        <div id="next-block" class="next-block">
+            <canvas id="nextCanvas"></canvas>
+        </div>
+        <div id="mobile__contorls" class="mobile__contorls">
+            <div id="rotate"><div id="rotate__text"></div></div>
+            <div id="leftRight">
+                <div id="left__div">
+                    <i class="fas fa-chevron-left fa-2x"></i>
+            </div>
+            <div id="right__div">
+                <i class="fas fa-chevron-right fa-2x"></i>
+            </div>
+        </div>
+            <div id="down">Down</i></div>
+        </div>
+        <div id="contorls" class="contorls"><span id="controls__play">Play</span></div>
+    </div>
+
+<!-- <audio autoplay src="/audio/TetrisThèmeOfficiel_631.wav" loop></audio> -->
+    <span class="hidden hidethis">.</span>
+    <span class="hidden2 hidethis">.</span>
+    <script src="piece.js"></script>
+    <script src="board.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
