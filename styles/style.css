@@ -6,114 +6,119 @@
 }
 
 html {
-    
+
     font-family: 'Marvel', sans-serif;
     overflow: hidden;
     color: #fff;
-   
+
 }
-html p{
+
+html p {
     font-size: 25px;
 }
 
 body {
     background-image: url('/images/fond\ paysage.jpg');
-    background-repeat: no-repeat;
     background-size: cover;
+    background-repeat: no-repeat;
     width: 100%;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 16px;    
+    font-size: 16px;
 
 }
-.baba img{
+
+.baba img {
     width: 100px;
     border: white solid 5px;
-    
-    
-    
-}
-h3{
-    font-size: 25px;
-    font-family: 'Rubik Puddles', cursive;
-    text-shadow:
-    0 0 7px #fff,
-    0 0 10px #fff,
-    0 0 42px rgb(230, 18, 124),
-    0 0 77px rgb(230, 18, 124),
-    0 0 100px rgb(230, 18, 124);
-animation: lumier 2s infinite linear;
+
+
 
 }
-@keyframes lumiere {
-0% {
+
+h3 {
+    font-size: 25px;
+    font-family: 'Rubik Puddles', cursive;
     text-shadow:
         0 0 7px #fff,
         0 0 10px #fff,
         0 0 42px rgb(230, 18, 124),
         0 0 77px rgb(230, 18, 124),
         0 0 100px rgb(230, 18, 124);
+    animation: lumier 2s infinite linear;
+
 }
 
-50% {
-    text-shadow:
-        0 0 7px rgb(253, 251, 251),
-        0 0 10px rgb(252, 251, 251),
-        0 0 32px rgb(230, 18, 124),
-        0 0 87px rgb(230, 18, 124),
-        0 0 120px rgb(230, 18, 124);
-}
+@keyframes lumiere {
+    0% {
+        text-shadow:
+            0 0 7px #fff,
+            0 0 10px #fff,
+            0 0 42px rgb(230, 18, 124),
+            0 0 77px rgb(230, 18, 124),
+            0 0 100px rgb(230, 18, 124);
+    }
+
+    50% {
+        text-shadow:
+            0 0 7px rgb(5, 5, 5),
+            0 0 10px rgb(4, 4, 4),
+            0 0 32px rgb(230, 18, 124),
+            0 0 87px rgb(230, 18, 124),
+            0 0 120px rgb(230, 18, 124);
+    }
 }
 
-canvas{
+canvas {
+    background-color: darkgray;
+
+
+}
+
+#nextCanvas {
     background-color: darkgray;
     
-    
-       
-}
-
-#nextCanvas{
-    background-color: darkgray;
-    box-shadow: none;
 
 }
+
 
 .result-container {
     background-color: #050505;
-    
-    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
+
+
 }
 
-.result-container #game-header{
+.result-container #game-header {
     height: 20%;
-    font-size: 2rem;    
+    font-size: 2rem;
     text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
-.result-container #score{
+
+.result-container #score {
     height: 15%;
 }
 
-.result-container #next-block{
+.result-container #next-block {
     display: block;
     align-self: center;
     height: 45%;
     width: 100%;
-    text-align: center;        
+    text-align: center;
 }
+
 /* moblie */
-.result-container #mobile__contorls{
+.result-container #mobile__contorls {
     align-self: center;
-    color: white;
+    color: black;
     font-weight: normal;
     font-size: 1.1125rem;
     height: 40%;
@@ -125,21 +130,23 @@ canvas{
     align-items: center;
 }
 
-.result-container #mobile__contorls  #rotate:active{
-    transform: scale(0.95);
-}
-.result-container #mobile__contorls  #leftRight div:active{
-    transform: scale(0.95);
-}
-.result-container #mobile__contorls  #down:active{
+.result-container #mobile__contorls #rotate:active {
     transform: scale(0.95);
 }
 
-.result-container #mobile__contorls #rotate{
+.result-container #mobile__contorls #leftRight div:active {
+    transform: scale(0.95);
+}
+
+.result-container #mobile__contorls #down:active {
+    transform: scale(0.95);
+}
+
+.result-container #mobile__contorls #rotate {
     border: 1px solid black;
-    background-color: #fbfbfc;   
+    background-color: #fbfbfc;
     border-radius: 5px;
-    height: 20%;    
+    height: 20%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -147,17 +154,18 @@ canvas{
     user-select: none;
 }
 
-.result-container #mobile__contorls #rotate #rotate__text{
-    -moz-user-select:none;
-    -ms-user-select:none;
-    -webkit-user-select:none;
+.result-container #mobile__contorls #rotate #rotate__text {
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
     user-select: none;
 }
 
-.result-container #mobile__contorls #rotate #rotate__text::before{
+.result-container #mobile__contorls #rotate #rotate__text::before {
     content: "Rotate";
 }
-.result-container #mobile__contorls #leftRight{
+
+.result-container #mobile__contorls #leftRight {
     margin: 4px 4px;
     width: 100%;
     height: 20%;
@@ -167,8 +175,8 @@ canvas{
     align-items: center;
 }
 
-.result-container #mobile__contorls #leftRight div{
-    background-color: #30336b;   
+.result-container #mobile__contorls #leftRight div {
+    background-color: #30336b;
     border-radius: 5px;
     width: 48%;
     height: 100%;
@@ -181,14 +189,15 @@ canvas{
 
 }
 
-.result-container #mobile__contorls #leftRight #left__div{
+.result-container #mobile__contorls #leftRight #left__div {
     flex-direction: row;
     justify-content: center;
     align-items: center;
 }
-.result-container #mobile__contorls #down{ 
+
+.result-container #mobile__contorls #down {
     border: 1px solid black;
-    background-color: #30336b;   
+    background-color: #30336b;
     width: 60%;
     border-radius: 50%;
     height: 30%;
@@ -197,16 +206,18 @@ canvas{
     justify-content: center;
     align-items: center;
 }
+
 /* moblie */
 
-.result-container #contorls{
+.result-container #contorls {
     height: 20%;
     display: flex;
     flex-direction: column;
     justify-content: center;
 
 }
-.result-container #contorls #controls__play{
+
+.result-container #contorls #controls__play {
     background-color: #27ae60;
     font-size: 1.5rem;
     height: auto;
@@ -215,24 +226,25 @@ canvas{
     border: 1px solid black;
 }
 
-.result-container #contorls #controls__play:hover{
+.result-container #contorls #controls__play:hover {
     background-color: rgb(13, 13, 15);
-    color:#27ae60;
+    color: #27ae60;
     cursor: pointer;
 }
 
-.result-container #contorls #controls__play:active{
+.result-container #contorls #controls__play:active {
     transform: scale(0.95);
 }
 
 
-.hidden{
+.hidden {
     color: #fff;
     font-family: 'Caveat';
     visibility: hidden;
 }
-.hidden2{
-    color:#fff;
+
+.hidden2 {
+    color: #fff;
     font-family: 'Raleway';
     visibility: hidden;
 }
